@@ -1,33 +1,34 @@
 from flask import Flask
 from flask import render_template
-from flask.ext.navigation import Navigation
+#from flask.ext.navigation import Navigation
 
 app = Flask(__name__)
-nav = Navigation(app)
-
-nav.Bar('top', [
-    nav.Item('Home', 'index'),
-    nav.Item('Bookings', 'booking', {'page': 1}),
-])
+# nav = Navigation()
+# nav.init_app(app)
+#
+# nav.Bar('top', [
+#     nav.Item('Home', 'index'),
+#     nav.Item('Bookings', 'booking', {'page': 1}),
+# ])
 
 @app.route("/")
 def homePage():
-  return render_template("/html/index.html")
+    return render_template("/html/index.html")
 
-@app.route('/bookins/<int:page>')
-def bookings(page):
-    return render_template("/html/booking/booking.html", page=page)
+# @app.route('/bookins/<int:page>')
+# def bookings(page):
+#     return render_template("/html/booking/booking.html", page=page)
 
-# @app.route("/booking")
-# def booking():
-#   return render_template("/html/booking/booking.html")
+@app.route("/booking")
+def booking():
+    return render_template("/html/booking/booking.html")
 
 @app.route("/user/<user_name>")
 def user(user_name):
-  return 'Book you Room - Gillian Moore'
+    return 'Book you Room - Gillian Moore'
 
 if __name__ == "__main__":
-  app.run(debug=True)
+    app.run(debug=True)
 
 
 
