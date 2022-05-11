@@ -1,36 +1,23 @@
 from flask import Flask
 from flask import render_template
-#from flask import request
-#from flask_mysqldb import MySQL
-#from flask_cors import CORS
-#import json
 
-#mysql = MySQL()
 app = Flask(__name__)
-# CORS(app)
-# # My SQL Instance configurations
-# # Change the HOST IP and Password to match your instance configurations
-# app.config['MYSQL_USER'] = 'web'
-# app.config['MYSQL_PASSWORD'] = 'webPass'
-# app.config['MYSQL_DB'] = 'student'
-# app.config['MYSQL_HOST'] = 'localhost' #for now
-# mysql.init_app(app)
 
-@app.route("/") #Add Student
+
+@app.route("/")
 def homePage():
   return render_template("/html/index.html")
 
-@app.route("/booking") #Add Student
+@app.route("/booking")
 def booking():
   return 'Book you Room - Gillian Moore'
 
-@app.route("/user/<user_name>") #Add Student
+@app.route("/user/<user_name>")
 def user(user_name):
   return 'Book you Room - Gillian Moore'
 
 if __name__ == "__main__":
   app.run(debug=True)
-
 
 
 
