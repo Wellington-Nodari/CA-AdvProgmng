@@ -10,7 +10,7 @@ def homePage():
 
 @app.route("/booking")
 def booking():
-  return 'Book you Room - Gillian Moore'
+  return render_template("/html/booking/booking.html")
 
 @app.route("/user/<user_name>")
 def user(user_name):
