@@ -22,7 +22,7 @@ def login():
         if database[name1] != pwd:
             return render_template('/html/index.html', info='Invalid Password')
         else:
-            return render_template('/booking/booking.html', name=name1)
+            return render_template('/html/booking/booking.html', name=name1)
 
 
 if __name__ == '__main__':
