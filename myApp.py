@@ -5,14 +5,17 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def hello():
     return render_template("/html/index.html")
+
 database = {'well@pp.ie': '123', 'tha': 'qwert', 'neusa': 'bere'}
+
 
 @app.route('/form_login', methods=['POST', 'GET'])
 def login():
-    name1 = request.form['username']
+    #name1 = request.form['username']
     email = request.form['email']
     pwd = request.form['password']
 
