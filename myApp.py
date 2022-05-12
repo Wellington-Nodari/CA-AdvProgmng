@@ -1,4 +1,7 @@
 from flask import Flask, request, render_template
+#from flask.ext.mysql import MySQL
+
+#mysql = MySQL()
 
 app = Flask(__name__)
 
@@ -7,7 +10,7 @@ app = Flask(__name__)
 def hello():
     return render_template("/html/index.html")
 
-    database = {'well': '123', 'tha': 'qwert', 'neusa': 'bere'}
+    database={'well':'123','tha':'qwert','neusa':'bere'}
 
 
 @app.route('/form_login', methods=['POST', 'GET'])
