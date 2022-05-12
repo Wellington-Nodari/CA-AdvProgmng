@@ -10,7 +10,7 @@ app = Flask(__name__)
 def hello():
     return render_template("/html/index.html")
 
-    database={'well':'123','tha':'qwert','neusa':'bere'}
+database={'well':'123','tha':'qwert','neusa':'bere'}
 
 
 @app.route('/form_login', methods=['POST', 'GET'])
