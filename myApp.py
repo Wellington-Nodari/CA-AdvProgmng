@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello():
-    return render_template("index.html")
+    return render_template("/html/index.html")
 
     database = {'well': '123', 'tha': 'qwert', 'neusa': 'bere'}
 
@@ -16,13 +16,13 @@ def login():
     pwd = request.form['password']
 
     if name1 not in database:
-        return render_template('index.html', info='Invalid User')
+        return render_template('/html/index.html', info='Invalid User')
 
     else:
         if database[name1] != pwd:
-            return render_template('index.html', info='Invalid Password')
+            return render_template('/html/index.html', info='Invalid Password')
         else:
-            return render_template('home.html', name=name1)
+            return render_template('/html/booking/booking.html', name=name1)
 
 
 if __name__ == '__main__':
