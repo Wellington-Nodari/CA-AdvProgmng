@@ -7,35 +7,58 @@
 
 <script>
 
-const loginBt = document.getElementById('loginForm');
+const signBt = document.getElementById('signup');
 
-loginBt.addEventListener('click', () => {
-  const form = document.getElementById('loginForm');
+    signBt.addEventListener('click', () => {
+      const form = document.getElementById('signDv');
 
-  if (form.style.display === 'none') {
-    form.style.display = 'block';
-  } else {
-    form.style.display = 'none';
-  }
-});
+      if (form.style.display === 'none') {
+        form.style.display = 'block';
+      } else {
+        form.style.display = 'none';
+      }
+    });
+
+    const loginBt = document.getElementById('login');
+
+    loginBt.addEventListener('click', () => {
+      const form = document.getElementById('loginDv');
+
+      if (form.style.display === 'none') {
+        form.style.display = 'block';
+      } else {
+        form.style.display = 'none';
+      }
+    });
 
 </script>
 
 <h1>Welcome to my School</h1>
-<h2>The best online courses provider</h2>
+  <h2>The best online courses provider</h2>
 
-<button id="login">Login</button>
-<button id="signup">SignUp</button>
+  <button id="login">Login</button>
+  <button id="signup">SignUp</button>
 
-<form action="/form_login" method="post" id="loginForm">
-  <br/>
-  <input placeholder="Username" type="text" name="username"><br/>
-  <br/>
-  <input placeholder="Password" name="password"><br/><br/>
-  <input type="submit" value="Login">
-</form>
-
-<h3>{{info}}</h3>
+  <div style = "display:none" id="signDv">
+    <form action="/form_signup" method="post" id="signupForm">
+      <br/>
+      <input placeholder="Username" type="text" name="username"><br/>
+      <br/>
+      <input placeholder="Password" name="password"><br/><br/>
+      <input placeholder="Confirm Password" name="cPwd"><br/><br/>
+      <input type="submit" value="Sign Up">
+    </form>
+  </div>
+  <div style = "display:none" id="loginDv">
+    <form action="/form_login" method="post" id="loginForm">
+      <br/>
+      <input placeholder="Username" type="text" name="username"><br/>
+      <br/>
+      <input placeholder="Password" name="password"><br/><br/>
+      <input type="submit" value="Login">
+    </form>
+  </div>
+  <h3>{{info}}</h3>
 
 </body>
 </html>

@@ -27,6 +27,23 @@ def login():
         else:
             return render_template('/html/booking/booking.html', name=name1)
 
+@app.route('/form_signup', methods=['POST', 'GET'])
+def signup():
+    name1 = request.form['username']
+    pwd = request.form['password']
+    cpwd = request.form['password']
+
+    if name1 in database:
+        return render_template('/html/index.html', info='User name already in use. Choose another one.')
+    if pwd != cpwd:
+        return render_template('/html/index.html', info='The passwords must match.')
+
+    else:
+        if database[name1] != pwd:
+            return render_template('/html/index.html', info='Invalid Password')
+        else:
+            return render_template('/html/booking/booking.html', name=name1)
+
 
 if __name__ == '__main__':
     app.run(debug=True)
