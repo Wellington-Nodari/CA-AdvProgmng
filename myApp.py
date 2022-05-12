@@ -26,7 +26,7 @@ def login():
             if database[email] != pwd:
                 return render_template('/html/index.html', info='Invalid Password')
             else:
-                return render_template('/html/booking/booking.html', name=request.form['username'])
+                return render_template('/html/booking/booking.html', name=email) #request.form['username'])
     else:
         return render_template('/html/index.html', info='')
 
