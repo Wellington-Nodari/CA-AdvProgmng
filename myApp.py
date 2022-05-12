@@ -5,11 +5,10 @@ from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
-database = {'well@pp.ie': '123', 'tha': 'qwert', 'neusa': 'bere'}
-
 @app.route('/')
 def hello():
     return render_template("/html/index.html")
+database = {'well@pp.ie': '123', 'tha': 'qwert', 'neusa': 'bere'}
 
 @app.route('/form_login', methods=['POST', 'GET'])
 def login():
