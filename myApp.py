@@ -1,9 +1,12 @@
 from flask import Flask, request, render_template
-#from flask.ext.mysql import MySQL
+from flaskext.mysql import MySQL
+from flask_cors import CORS
+import json
 
-#mysql = MySQL()
-
+mysql = MySQL()
 app = Flask(__name__)
+CORS(app)
+
 
 
 @app.route('/')
