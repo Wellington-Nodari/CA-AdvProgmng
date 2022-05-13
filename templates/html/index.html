@@ -38,29 +38,39 @@
 
 <script>
 
-const signBt = document.getElementById('signup');
+  const signBt = document.getElementById('signup');
+  const loginBt = document.getElementById('login');
 
-    signBt.addEventListener('click', () => {
-      const form = document.getElementById('signDv');
+  if (signDv.style.display = 'block') {
+    loginDv.style.display = 'none'
+  } if (loginDv.style.display = 'block') {
+    signDv.style.display = 'none'
+  }
 
-      if (form.style.display === 'none') {
-        form.style.display = 'block';
-      } else {
-        form.style.display = 'none';
-      }
-    });
+  signBt.addEventListener('click', () => {
+    const form = document.getElementById('signDv');
 
-    const loginBt = document.getElementById('login');
+    if (form.style.display === 'none') {
+      form.style.display = 'block';
+    } else {
+      form.style.display = 'none';
+    }
+  });
 
-    loginBt.addEventListener('click', () => {
-      const form = document.getElementById('loginDv');
 
-      if (form.style.display === 'none') {
-        form.style.display = 'block';
-      } else {
-        form.style.display = 'none';
-      }
-    });
+  loginBt.addEventListener('click', () => {
+    const form = document.getElementById('loginDv');
+
+    if (form.style.display === 'none') {
+      form.style.display = 'block';
+    } else {
+      form.style.display = 'none';
+    }
+  });
+
+  if (loginBt.style.display = 'block') {
+
+  }
 
 </script>
 
