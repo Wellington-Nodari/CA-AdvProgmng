@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template
 from flask_mysqldb import MySQL
 from flask_cors import CORS
+import mysql.connector
 import json
 
 app = Flask(__name__)
@@ -9,7 +10,7 @@ CORS(app)
 
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'P21m38f77*'
-app.config['MYSQL_DB'] = 'login'
+app.config['MYSQL_DB'] = 'mycadbs'
 app.config['MYSQL_HOST'] = 'localhost' #for now
 mysql.init_app(app)
 
