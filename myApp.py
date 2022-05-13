@@ -12,7 +12,7 @@ CORS(app)
 app.config['MYSQL_USER'] = 'root'
 app.config['MYSQL_PASSWORD'] = 'P21m38f77*'
 app.config['MYSQL_DB'] = 'mycadbs'
-app.config['MYSQL_HOST'] = 'localhost' #for now
+app.config['MYSQL_HOST'] = 'localhost'
 mysql.init_app(app)
 
 
@@ -25,21 +25,26 @@ def hello():
 
 @app.route('/form_login', methods=['POST', 'GET'])
 def login():
-    #username = request.form['username']
-    email = request.form['email']
-    pwd = request.form['password']
+    email = request.args.get('email')
+    pwd = request.args.get('pwd')
 
-    if email is not None:
-        if email not in mysql:
-            return render_template('/html/index.html', info='Invalid Email')
+    cur = mysql.connection.cursor()  # create a connection to the SQL instance
+    cur.execute('''SELECT * FROM students''')  # execute an SQL statment
+    rv = cur.fetchall()
+    results = []
 
-        else:
-            if mysql[email] != pwd:
-                return render_template('/html/index.html', info='Invalid Password')
+    for row in rv:
+        if email is not None:
+            if email not in row:
+                return render_template('/html/index.html', info='Invalid Email')
+
             else:
-                return render_template('/html/booking/booking.html', name=email) #request.form['username'])
-    else:
-        return render_template('/html/index.html', info='')
+                if results[email] != pwd:
+                    return render_template('/html/index.html', info='Invalid Password')
+                else:
+                    return render_template('/html/booking/booking.html', name=email) #request.form['username'])
+        else:
+            return render_template('/html/index.html', info='')
 
 @app.route('/form_signup', methods=['POST', 'GET'])
 def signup():
@@ -51,7 +56,6 @@ def signup():
     cur = mysql.connection.cursor()
     s = '''INSERT INTO login(username, email, pwd) VALUES('{}','{}','{}');'''.format(name, email, pwd)
     cur.execute(s)
-    mysql.connection.commit()
 
     if name in mysql:
         return render_template('/html/index.html', info='User name already in use. Choose another one.')
@@ -64,6 +68,7 @@ def signup():
         if mysql[email] != pwd:
             return render_template('/html/index.html', info='Invalid Password')
         else:
+            mysql.connection.commit()
             return render_template('/html/booking/booking.html', name=name)
 
 
