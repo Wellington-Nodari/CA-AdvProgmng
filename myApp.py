@@ -19,8 +19,13 @@ def hello():
     cur = mysql.connection.cursor()
     cur.execute('''SELECT * FROM login;''')
     results = cur.fetchall()
-    print(results)
-    return 'success' #results[0]['name'] #render_template("/html/index.html")
+    ret = app.response_class(
+        response=json.dumps(response),
+        status=200,
+        mimetype='application/json'
+    )
+    return ret
+#return 'success' #results[0]['name'] #render_template("/html/index.html")
 
 # database = {'well@pp.ie': '123', 'tha': 'qwert', 'neusa': 'bere'}
 
