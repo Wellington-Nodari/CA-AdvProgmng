@@ -6,10 +6,12 @@
 <body>
 
 <h1>Welcome to my School</h1>
-  <h2>The best online courses provider</h2>
-
-  <button onClick="loginBt" id="login">Login</button>
+  <h2>The best online courses provider
   <button onClick="signBt" id="signup">SignUp</button>
+  </h2>
+
+<!--  <button onClick="loginBt" id="login">Login</button>-->
+<!--  <button onClick="signBt" id="signup">SignUp</button>-->
 
   <div style = "display:none" id="signDv">
     <form action="/form_signup" method="post" id="signupForm">
@@ -24,7 +26,7 @@
     </form>
   </div>
 
-  <div style = "display:none" id="loginDv">
+  <div style = "display:block" id="loginDv">
     <form action="/form_login" method="post" id="loginForm">
       <br/>
       <input placeholder="Email" type="email" name="email"><br/>
@@ -42,9 +44,9 @@
   const loginBt = document.getElementById('login');
 
   if (signDv.style.display = 'block') {
-    loginDv.style.display = 'none'
+    loginDv.style.display === 'none'
   } if (loginDv.style.display = 'block') {
-    signDv.style.display = 'none'
+    signDv.style.display === 'none'
   }
 
   signBt.addEventListener('click', () => {
