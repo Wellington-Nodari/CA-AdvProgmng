@@ -19,7 +19,7 @@ def hello():
     cur.execute('''SELECT * FROM login;''')
     results = cur.fetchall()
     #print(results)
-    return print(results) #render_template("/html/index.html")
+    return results[0]['name'] #render_template("/html/index.html")
 
 database = {'well@pp.ie': '123', 'tha': 'qwert', 'neusa': 'bere'}
 
