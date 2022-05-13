@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-from flaskext.mysql import MySQL
+from flask_mysqldb import MySQL
 from flask_cors import CORS
 import json
 
@@ -7,11 +7,19 @@ mysql = MySQL()
 app = Flask(__name__)
 CORS(app)
 
-
+app.config['MYSQL_USER'] = 'well'
+app.config['MYSQL_PASSWORD'] = 'M@nowell0508'
+app.config['MYSQL_DB'] = 'login'
+app.config['MYSQL_HOST'] = 'localhost' #for now
+mysql.init_app(app)
 
 @app.route('/')
 def hello():
-    return render_template("/html/index.html")
+    cur = mysql.connection.cursor()
+    cur.execute('''SELECT * FROM login;''')
+    results = cur.fetchall()
+    #print(results)
+    return print(results) #render_template("/html/index.html")
 
 database = {'well@pp.ie': '123', 'tha': 'qwert', 'neusa': 'bere'}
 
