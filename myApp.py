@@ -16,10 +16,10 @@ def login():
 
     if email not in mysql:
         return render_template('/html/index.html', info='Invalid Email')
-        if [pwd] != email:
-            return render_template('/html/index.html', info='Invalid Password')
-        else:
-            return render_template('/html/booking/booking.html', name=email)
+    if [pwd] != email:
+        return render_template('/html/index.html', info='Invalid Password')
+    else:
+        return render_template('/html/booking/booking.html', name=email)
 
     return render_template('/html/index.html', info='')
 
