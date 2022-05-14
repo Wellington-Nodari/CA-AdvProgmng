@@ -38,30 +38,15 @@
     <script>
 
       let signBt = document.getElementById('signup');
-      let loginBt = document.getElementById('login');
 
       let formS = document.getElementById('signDv');
       let formL = document.getElementById('loginDv');
 
-      if (formS.style.display === 'block') {
-        formL.style.display = 'none'
-      } if (formL.style.display === 'block') {
-        formS.style.display = 'none'
-      }
-
       signBt.addEventListener('click', () => {
         if (formS.style.display === 'none') {
-          formS.style.display = 'block';
+          formS.style.display = 'block', formL.style.display = 'none';
         } else {
-          formS.style.display = 'none';
-        }
-      });
-
-      loginBt.addEventListener('click', () => {
-        if (formL.style.display === 'none') {
-          formL.style.display = 'block';
-        } else {
-          formL.style.display = 'none';
+          formL.style.display = 'block', formS.style.display = 'none';
         }
       });
 
