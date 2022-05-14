@@ -37,31 +37,31 @@
 
     <script>
 
-      const signBt = document.getElementById('signup');
-      const loginBt = document.getElementById('login');
+      let signBt = document.getElementById('signup');
+      let loginBt = document.getElementById('login');
 
-      const form = document.getElementById('signDv');
-      const form = document.getElementById('loginDv');
+      let formS = document.getElementById('signDv');
+      let formL = document.getElementById('loginDv');
 
-      if (signDv.style.display = 'block') {
-        loginDv.style.display === 'none'
-      } if (loginDv.style.display = 'block') {
-        signDv.style.display === 'none'
-      };
+      if (formS.style.display === 'block') {
+        formL.style.display = 'none'
+      } if (formL.style.display === 'block') {
+        formS.style.display = 'none'
+      }
 
       signBt.addEventListener('click', () => {
-        if (form.style.display === 'none') {
-          form.style.display = 'block';
+        if (formS.style.display === 'none') {
+          formS.style.display = 'block';
         } else {
-          form.style.display = 'none';
+          formS.style.display = 'none';
         }
       });
 
       loginBt.addEventListener('click', () => {
-        if (form.style.display === 'none') {
-          form.style.display = 'block';
+        if (formL.style.display === 'none') {
+          formL.style.display = 'block';
         } else {
-          form.style.display = 'none';
+          formL.style.display = 'none';
         }
       });
 
