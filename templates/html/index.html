@@ -1,80 +1,71 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>My Login Page - Test</title>
-</head>
-<body>
+  <head>
+    <title>My Login Page - Test</title>
+  </head>
+  <body>
 
-<h1>Welcome to my School</h1>
-  <h2>The best online courses provider
-  <button onClick="signBt" id="signup">SignUp</button>
-  </h2>
+    <h1>Welcome to my School</h1>
+      <h2>The best online courses provider
+      <button onClick="signBt" id="signup">SignUp</button>
+      </h2>
 
-<!--  <button onClick="loginBt" id="login">Login</button>-->
-<!--  <button onClick="signBt" id="signup">SignUp</button>-->
+      <div style = "display:none" id="signDv">
+        <form action="/form_signup" method="post" id="signupForm">
+          <br/>
+          <input placeholder="Username" type="text" name="username"><br/>
+          <br/>
+          <input placeholder="Email" type="email" name="email"><br/>
+          <br/>
+          <input placeholder="Password" name="password"><br/><br/>
+          <input placeholder="Confirm Password" name="pwdC"><br/><br/>
+          <input type="submit" value="Sign Up">
+        </form>
+      </div>
 
-  <div style = "display:none" id="signDv">
-    <form action="/form_signup" method="post" id="signupForm">
-      <br/>
-      <input placeholder="Username" type="text" name="username"><br/>
-      <br/>
-      <input placeholder="Email" type="email" name="email"><br/>
-      <br/>
-      <input placeholder="Password" name="password"><br/><br/>
-      <input placeholder="Confirm Password" name="pwdC"><br/><br/>
-      <input type="submit" value="Sign Up">
-    </form>
-  </div>
+      <div style = "display:block" id="loginDv">
+        <form action="/form_login" method="post" id="loginForm">
+          <br/>
+          <input placeholder="Email" type="email" name="email"><br/>
+          <br/>
+          <input placeholder="Password" name="password"><br/><br/>
+          <input type="submit" value="Login">
+        </form>
+      </div>
 
-  <div style = "display:block" id="loginDv">
-    <form action="/form_login" method="post" id="loginForm">
-      <br/>
-      <input placeholder="Email" type="email" name="email"><br/>
-      <br/>
-      <input placeholder="Password" name="password"><br/><br/>
-      <input type="submit" value="Login">
-    </form>
-  </div>
+      <h3>{{info}}</h3>
 
-  <h3>{{info}}</h3>
+    <script>
 
-<script>
+      const signBt = document.getElementById('signup');
+      const loginBt = document.getElementById('login');
 
-  const signBt = document.getElementById('signup');
-  const loginBt = document.getElementById('login');
+      const form = document.getElementById('signDv');
+      const form = document.getElementById('loginDv');
 
-  if (signDv.style.display = 'block') {
-    loginDv.style.display === 'none'
-  } if (loginDv.style.display = 'block') {
-    signDv.style.display === 'none'
-  }
+      if (signDv.style.display = 'block') {
+        loginDv.style.display === 'none'
+      } if (loginDv.style.display = 'block') {
+        signDv.style.display === 'none'
+      };
 
-  signBt.addEventListener('click', () => {
-    const form = document.getElementById('signDv');
+      signBt.addEventListener('click', () => {
+        if (form.style.display === 'none') {
+          form.style.display = 'block';
+        } else {
+          form.style.display = 'none';
+        }
+      });
 
-    if (form.style.display === 'none') {
-      form.style.display = 'block';
-    } else {
-      form.style.display = 'none';
-    }
-  });
+      loginBt.addEventListener('click', () => {
+        if (form.style.display === 'none') {
+          form.style.display = 'block';
+        } else {
+          form.style.display = 'none';
+        }
+      });
 
+    </script>
 
-  loginBt.addEventListener('click', () => {
-    const form = document.getElementById('loginDv');
-
-    if (form.style.display === 'none') {
-      form.style.display = 'block';
-    } else {
-      form.style.display = 'none';
-    }
-  });
-
-  if (loginBt.style.display = 'block') {
-
-  }
-
-</script>
-
-</body>
+  </body>
 </html>
