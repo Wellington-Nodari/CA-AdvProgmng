@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<h1>Welcome {{name}}!</h1><br>
+<h1>Welcome {{email}}!</h1><br>
 
 <p>Click <a href="logout">here</a> to logout.</p>
 {% for message in get_flashed_messages() %}
@@ -20,6 +20,10 @@
 <strong>Username</strong> {{ student.username }} <br>
 <strong>Email</strong> {{ student.email }} <br>
 {% endfor %}
+
+    {% if error %}
+      <p class-"error"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
 
 </body>
 </html>

@@ -1,6 +1,7 @@
 from flask import Flask, request, render_template, redirect, url_for, session, flash, g
 from functools import wraps
 import sqlite3
+import json
 
 app = Flask(__name__)
 
@@ -30,20 +31,25 @@ def test():
 def home():
     return render_template("/html/index.html")
 
-@app.route('/login', methods=['POST', 'GET'])
+@app.route("/login", methods=['POST', 'GET'])
 def login():
     error = None
-    # email = request.form['email']
-    # pwd = request.form['pwd']
+    email = str(request.form["email"])
+    pwd = str(request.form["password"])
+    g.db = connect_db()
+    cur = g.db.execute('select * from students')
+    st = f"SELECT email, password FROM students WHERE email='{email}' AND password='{pwd}';"
+    cur.execute(st)
+    e = cur.fetchall()
 
-    if request.method == 'POST':
-        if request.form['email'] != 'admin@g.com' or request.form['password'] != 'admin':
-            error = 'Invalid credentials. Please try again'
-        else:
-            session['logged_in'] = True
-            flash("You were just logged in!")
-            return redirect(url_for('test'))
-    return render_template('/html/booking/booking.html', error=error)
+    if e[0][0] == email and e[0][1] == pwd:
+        session['logged_in'] = True
+        g.db.close()
+        flash("You were just logged in!")
+        return redirect(url_for('test'))
+    else:
+        error = 'Invalid credentials. Please try again'
+        return render_template('/html/index.html', error=error)
 
 @app.route('/logout')
 def logout():
