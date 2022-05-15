@@ -12,7 +12,7 @@
       </h2>
 
       <div style = "display:none" id="signDv">
-        <form action="/form_signup" method="post" id="signupForm">
+        <form action="/signup" method="post" id="signupForm">
           <br/>
           <input placeholder="Username" type="text" name="username"><br/>
           <br/>
@@ -25,7 +25,7 @@
       </div>
 
       <div style = "display:block" id="loginDv">
-        <form action="/form_login" method="post" id="loginForm">
+        <form action="/login" method="post" id="loginForm">
           <br/>
           <input placeholder="Email" type="email" name="email"><br/>
           <br/>
@@ -34,7 +34,14 @@
         </form>
       </div>
 
-      <h3>{{info}}</h3>
+    {% if error %}
+      <p class-"error"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+
+    {% for message in get_flashed_messages() %}
+      {{ message }}
+    {% endfor %}
+<!--      <h3>{{info}}</h3>-->
 
     <script>
 

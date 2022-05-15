@@ -6,7 +6,20 @@
 </head>
 <body>
 
-<h1>Welcome {{name}}!</h1>
+<h1>Welcome {{name}}!</h1><br>
+
+<p>Click <a href="logout">here</a> to logout.</p>
+{% for message in get_flashed_messages() %}
+    {{ message }}
+{% endfor %}
+<br>
+<h3>Students Info List</h3>
+{% for student in students %}
+<br>
+<strong>Student Id</strong> {{ student.studentId }} <br>
+<strong>Username</strong> {{ student.username }} <br>
+<strong>Email</strong> {{ student.email }} <br>
+{% endfor %}
 
 </body>
 </html>
