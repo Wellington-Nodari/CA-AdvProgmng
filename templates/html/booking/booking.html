@@ -15,13 +15,17 @@
     {% endfor %}
     <br><br>
 
-    <h3>Students Info List</h3>
-    {% for student in students %}
-    <br>
-    <strong>Student Id</strong> {{ student.studentId }} <br>
-    <strong>Username</strong> {{ student.username }} <br>
-    <strong>Email</strong> {{ student.email }} <br>
-    {% endfor %}
+    <div class="list">
+
+        <h3>Students Info List</h3>
+
+        {% for student in students %}<br>
+        <strong>Student Id</strong> {{ student.studentId }} <br>
+        <strong>Username</strong> {{ student.username }} <br>
+        <strong>Email</strong> {{ student.email }} <br>
+        {% endfor %}
+
+    </div>
 
     {% if error %}
       <p class="error"><strong>Error:</strong> {{ error }}</p>

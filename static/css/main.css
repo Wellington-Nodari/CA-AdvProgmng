@@ -79,6 +79,13 @@
         color: #ff0000
     }
 
+    .list {
+        margin: auto;
+        float: center;
+        text-align: justify;
+        color: #616161
+    }
+
     #signup {
         background-color: #616161;
         border: none;
