@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
     <meta charset="UTF-8">
     <title>Home Page - Test</title>
 </head>
 <body>
+    <div class="header">
+        <h1>Welcome {{ nameLogin }}!</h1><br>
+    </div>
+    <p>Click <a href="logout">here</a> to logout.</p><br>
+    {% for message in get_flashed_messages() %}
+        {{ message }}
+    {% endfor %}
+    <br><br>
 
-<h1>Welcome {{ nameLogin }}!</h1><br>
-
-<p>Click <a href="logout">here</a> to logout.</p>
-{% for message in get_flashed_messages() %}
-    {{ message }}
-{% endfor %}
-<br>
-<h3>Students Info List</h3>
-{% for student in students %}
-<br>
-<strong>Student Id</strong> {{ student.studentId }} <br>
-<strong>Username</strong> {{ student.username }} <br>
-<strong>Email</strong> {{ student.email }} <br>
-{% endfor %}
+    <h3>Students Info List</h3>
+    {% for student in students %}
+    <br>
+    <strong>Student Id</strong> {{ student.studentId }} <br>
+    <strong>Username</strong> {{ student.username }} <br>
+    <strong>Email</strong> {{ student.email }} <br>
+    {% endfor %}
 
     {% if error %}
-      <p class-"error"><strong>Error:</strong> {{ error }}</p>
+      <p class="error"><strong>Error:</strong> {{ error }}</p>
     {% endif %}
+
 
 </body>
 </html>

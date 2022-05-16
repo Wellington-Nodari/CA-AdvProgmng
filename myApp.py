@@ -4,7 +4,6 @@ import sqlite3
 import json
 
 app = Flask(__name__)
-
 app.secret_key = "diamond" #check this!!!
 app.database = "myschool.db"
 
@@ -41,8 +40,8 @@ def login():
     st = f"SELECT * FROM students WHERE email='{email}' AND password='{pwd}';"
     cur.execute(st)
     e = cur.fetchall()
-    nameLogin = e[0][1]
-    print(nameLogin)
+    # nameLogin = e[0][1]
+    # print(nameLogin)
     try:
         if e[0][2] == email and e[0][3] == pwd:
             session['logged_in'] = True

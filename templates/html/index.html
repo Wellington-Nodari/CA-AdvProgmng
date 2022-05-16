@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link rel="stylesheet" type="../css" href="main.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
     <title>My Application - Test</title>
   </head>
   <body>
-
-    <h1>Welcome to my School</h1>
-      <h2>The best online courses provider
-      <button onClick="signBt" id="signup">SignUp</button>
-      </h2>
+      <div class="header">
+      <h1>Welcome to my School</h1>
+        <h3>The best online courses provider
+        <button onClick="signBt" id="signup">SignUp</button>
+        </h3>
+      </div>
 
       <div style = "display:none" id="signDv">
         <form action="/signup" method="post" id="signupForm">
@@ -34,9 +35,11 @@
         </form>
       </div>
 
-    {% if error %}
-      <p class-"error"><strong>Error:</strong> {{ error }}</p>
-    {% endif %}
+      <div id="errorMsg"></div>
+          {% if error %}
+            <p class="error"><strong>Error:</strong> {{ error }}</p>
+          {% endif %}
+      </div>
 
     {% for message in get_flashed_messages() %}
       {{ message }}

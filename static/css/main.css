@@ -1,0 +1,107 @@
+*{      margin: auto;
+        padding: 5px;
+        box-sizing: border-box;
+  }
+
+    html, body {
+        margin-left: 10px;
+        text-align: left;
+        height: auto;
+        background: white;
+  }
+
+    .header h1 {
+        height: 100px;
+        background: orange;
+        color: white;
+        margin: auto;
+        float: center;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+}
+
+    .header h3 {
+        height: 70px;
+        background: #ffd8b2;
+        color: #616161;
+        margin: auto;
+        float: center;
+        padding: 20px;
+        box-sizing: border-box;
+        text-align: center;
+
+  }
+
+    .header button {
+        border-radius: 10px;
+        border: 2px solid #f0f0f0;
+        width: 100px;
+  }
+
+    #loginDv {
+        margin: auto;
+        float: center;
+        padding: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        text-decoration-color: darkgray;
+        border-collapse: collapse;
+  }
+
+    #lbtn {
+        border-radius: 10px;
+        border: 2px solid #b4b4b4;
+        width: 100px;
+  }
+
+    #signupForm {
+        margin: auto;
+        float: center;
+        padding: 5px;
+        box-sizing: border-box;
+        text-align: center;
+        text-decoration-color: darkgray;
+        border-collapse: collapse;
+  }
+
+    #sUpbtn {
+        border-radius: 10px;
+        border: 2px solid #b4b4b4;
+        width: 100px;
+  }
+
+
+    p.error {
+        margin: auto;
+        float: center;
+        text-align: center;
+        color: #ff0000
+    }
+
+    #signup {
+        background-color: #616161;
+        border: none;
+        color: #f2f2f2;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: auto;
+        cursor: pointer;
+        float: auto;
+    }
+
+    #signup:hover {
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.2);
+        background-color: #b4b4b4;
+        border: 1px solid #f0f0f0;
+        color: #3c3c3c;
+    }
+
+    #lbtn:hover {
+        background-color: #ff6347;
+    }
+
+    #sUpbtn:hover {
+        background-color: #3cb371;
+    }
