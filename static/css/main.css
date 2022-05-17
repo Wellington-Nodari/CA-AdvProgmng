@@ -1,6 +1,7 @@
 *{      margin: auto;
         padding: 5px;
         box-sizing: border-box;
+        height: auto;
   }
 
     html, body {
@@ -9,6 +10,10 @@
         height: auto;
         background: white;
   }
+
+    .content{
+        height: 500px;
+    }
 
     .header h1 {
         height: 100px;
@@ -111,4 +116,38 @@
 
     #sUpbtn:hover {
         background-color: #3cb371;
+    }
+
+    }
+    footer .footer{
+       float: center;
+       height: 40px;
+       width: 100%;
+       background-color: #262626;
+       position: fixed;
+       padding: 0px;
+       bottom: 0;
+       border-bottom: 2px;
+       text-align: center;
+    }
+
+    .footer #footerSM{
+       float: center;
+       color: blue;
+       text-align: center;
+       text-decoration: none;
+    }
+
+    #footerSM .fa:hover {
+       opacity: 0.8;
+       font-size: 17px;
+       width: 45px;
+       transition: .3s;
+    }
+
+    .footer #footerMsg{
+       float: center;
+       color: #616161;
+       text-align: center;
+       text-decoration: none;
     }

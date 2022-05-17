@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
     <title>My Application - Test</title>
   </head>
@@ -11,7 +12,7 @@
         <button onClick="signBt" id="signup">SignUp</button>
         </h3>
       </div>
-
+    <div class="content">
       <div style = "display:none" id="signDv">
         <form action="/signup" method="post" id="signupForm">
           <br/>
@@ -35,7 +36,7 @@
         </form>
       </div>
 
-      <div id="errorMsg"></div>
+      <div id="errorMsg">
           {% if error %}
             <p class="error"><strong>Error:</strong> {{ error }}</p>
           {% endif %}
@@ -44,7 +45,21 @@
     {% for message in get_flashed_messages() %}
       {{ message }}
     {% endfor %}
-<!--      <h3>{{info}}</h3>-->
+    </div>
+    <footer>
+      <div class="footer">
+		<p id="footerSM">
+            <a href="https://www.facebook.com" target="_window" class="fa fa-facebook"></a>
+			<a href="https://twitter.com" target="_window" class="fa fa-twitter"></a>
+			<a href="https://youtube.com" target="_window" class="fa fa-youtube"></a>
+			<a href="https://instagram.com" target="_window" class="fa fa-instagram"></a>
+			<a href="+353 0801234567" target="_window" class="fa fa-whatsapp"></a>
+        </p>
+        <p id="footerMsg">
+            The School | Quality in Teaching © copyright
+		</p>
+      </div>
+	</footer>
 
     <script>
 
