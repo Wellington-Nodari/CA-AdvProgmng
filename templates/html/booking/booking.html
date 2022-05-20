@@ -11,10 +11,10 @@
 </head>
 <body>
     <div class="header">
-        <h1>Welcome {{ nameLogin }}!</h1><br>
+        <h1>The IT School</h1>
+        <h2>Welcome {{ nameLogin }}!</h2><br>
     </div>
-    <h2 id="booking"> <a href="booking">Go Booking</a></h2><br>
-    <h3 id="logout">Click <a href="logout">here</a> to logout.</h3><br>
+    <p id="logout">Click <a href="logout">here</a> to logout.</p><br>
     {% for message in get_flashed_messages() %}
         {{ message }}
     {% endfor %}
@@ -27,7 +27,8 @@
 
         {% for student in students %}<br>
         <strong>Student Id</strong> {{ student.studentId }} <br>
-        <strong>Username</strong> {{ student.username }} <br>
+        <strong>User first name</strong> {{ student.fname }} <br>
+        <strong>User last name</strong> {{ student.lname }} <br>
         <strong>Email</strong> {{ student.email }} <br>
         {% endfor %}
 

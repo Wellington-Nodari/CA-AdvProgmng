@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
@@ -52,7 +50,8 @@ In dui eros, vestibulum iaculis ex in, porta consectetur velit. Quisque quam arc
           <br/>
           <input placeholder="Email" type="email" name="email"><br/>
           <br/>
-          <input list="courses" name="courses"><br/>
+          <label for="Course" style="color:white">Select your Course</label><br><br>
+          <input id="Course" list="courses" name="course"><br/>
             <datalist id="courses">
                 <option value="Data Science">
                 <option value="Software Development">

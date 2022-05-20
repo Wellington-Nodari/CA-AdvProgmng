@@ -20,7 +20,6 @@
         padding: 20px;
         box-sizing: border-box;
         text-align: center;
-        font-family: 'Indie Flower', cursive;
 }
 
     .header h2 {
@@ -72,12 +71,12 @@
   }
 
     #loginDv {
+        max-width: auto;
         margin: auto;
         float: center;
         padding: 5px;
         box-sizing: border-box;
         text-align: center;
-        text-decoration-color: darkgray;
         border-collapse: collapse;
   }
     .content{
@@ -92,24 +91,30 @@
         width: 100px;
   }
 
-    #enrollForm{
+    #enrollDv{
+        max-width: auto;
         margin: auto;
         float: center;
+        padding: 5px;
         box-sizing: border-box;
         text-align: center;
         text-decoration-color: darkgray;
         border-collapse: collapse;
-        background-color: #d9d2d5; radial-gradient(#424041, #918e8f, #d4cbcc);
-        width: 25%;
+    }
+
+    #enrollForm{
+        background-color: rgb(180, 180, 180, 0.3);
+        width: auto;
         border-radius: 10px;
         padding: 20px;
     }
 
     #enroll {
-        background: #FF9900;
+        background: #E50914;
         border-radius: 10px;
         border: 2px solid #b4b4b4;
         width: 100px;
+        color: white;
   }
 
 
@@ -147,8 +152,8 @@
     }
 
     #loginForm{
-        background-color: #d9d2d5;
-        width: 25%;
+        background-color: rgb(180, 180, 180, 0.2);
+        width: auto;
         border-radius: 10px;
         padding: 20px;
     }
