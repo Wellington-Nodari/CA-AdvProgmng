@@ -31,11 +31,31 @@ def main():
     cur = g.db.execute('select * from students')
     students = [dict(studentId=row[0], fname=row[1], lname=row[2], email=row[3]) for row in cur.fetchall()]
     g.db.close()
-    return render_template('/html/booking/booking.html', students=students)
+    return render_template('/html/main.html', students=students)
 
 @app.route('/datascience')
 def dataSc():
-    return render_template("/dataSc.html")
+    return render_template("/html/dataSc.html")
+
+@app.route('/softdev')
+def softDev():
+    return render_template("/html/softDev.html")
+
+@app.route('/devops')
+def devops():
+    return render_template("/html/devops.html")
+
+@app.route('/ixdesign')
+def ixdesign():
+    return render_template("/html/ixdesign.html")
+
+@app.route('/bchain')
+def bchain():
+    return render_template("/html/blockchain.html")
+
+@app.route('/cybersec')
+def cybersec():
+    return render_template("/html/cybersec.html")
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
@@ -48,7 +68,7 @@ def login():
     cur.execute(st)
     e = cur.fetchall()
     # nameLogin = e[0][1]
-    print(e)
+    # print(e)
     try:
         if e[0][1] == email and e[0][2] == pwd:
             session['logged_in'] = True
@@ -101,7 +121,7 @@ def enroll():
     #     if add[0][2] != pwd:
     #         return render_template('/html/index.html', info='Invalid Password')
     #     else:
-    #         return render_template('/html/booking/booking.html', name=name)
+    #         return render_template('/html/booking/main.html', name=name)
 
 
 if __name__ == '__main__':

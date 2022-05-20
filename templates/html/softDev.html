@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
+    <meta charset="UTF-8">
+    <title>The IT School</title>
+</head>
+<body>
+    <div class="header">
+        <h1><a href="/">The IT School</a></h1>
+        <h2>Software Development</h2><br>
+    </div>
+
+      <div class="courList">
+          <p id="coursesList">
+            <a href="datascience">Data Science</a>
+            <a>Software Development</a>
+            <a href="devops">DevOps</a>
+            <a href="ixdesign">UI/UX Design</a>
+            <a href="bchain">Blockchain</a>
+            <a href="cybersec">Cybersecurity</a>
+          </p>
+      </div>
+
+    <div class="content">
+        <h2>This is Software Development</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non tellus suscipit, pellentesque quam in, bibendum dui. Nullam gravida purus dolor.<br>
+            Donec ac sapien luctus, congue elit sit amet, blandit diam. Nulla ac mauris nulla. Sed a sapien tortor. In hac habitasse platea dictumst. Sed et pretium erat, sed dictum sem. Fusce eget nulla in risus molestie pellentesque. Nunc et augue mattis, maximus enim vitae, aliquet turpis.<br>
+            Morbi tristique justo id tortor euismod blandit. Aenean vel lectus eget turpis pretium convallis a eget est. Aliquam consequat maximus leo.<br>
+Curabitur congue justo ac nisl mollis, vitae condimentum augue elementum. Aliquam accumsan odio vitae sapien aliquet tempor. Etiam pretium lacus eu ipsum ultrices blandit.<br>
+            Curabitur imperdiet varius metus non finibus. Suspendisse nisi mauris, ultricies et euismod id, sodales sit amet nunc. Sed suscipit dapibus magna tempus suscipit. Vivamus quis enim at nulla eleifend maximus.
+            Donec quis velit eu augue euismod condimentum ac a risus. Ut ac dui convallis, bibendum purus et, accumsan metus. Nullam consectetur leo a ullamcorper facilisis.<br>
+Fusce id porta eros, at faucibus ligula. Vestibulum id libero sit amet elit dictum luctus et at augue. Pellentesque rutrum velit a magna faucibus vestibulum. Etiam vitae maximus enim. Fusce ac hendrerit tortor, et venenatis dui. Donec consequat posuere est ut euismod. Donec pulvinar metus sed vestibulum aliquam.<br>
+            Etiam elementum pulvinar consectetur. Donec vel magna sit amet felis convallis suscipit. Vivamus sit amet diam turpis. Fusce at velit cursus, accumsan massa eget, blandit felis.<br>
+In dui eros, vestibulum iaculis ex in, porta consectetur velit. Quisque quam arcu, tristique eget justo sed, euismod pulvinar nisi. Donec ac mi vehicula, blandit eros ut, egestas odio. Fusce lobortis nibh fermentum auctor imperdiet. Ut non tristique augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br>
+            Sed rhoncus neque quis velit varius, lobortis placerat augue malesuada. Aliquam erat volutpat. Duis eu luctus lacus. Integer scelerisque nisl vitae efficitur eleifend. Donec elementum lacus nec erat efficitur dignissim. In id tellus at tortor bibendum consequat et in neque. Mauris eros est, mattis id nibh vel, condimentum ultricies dolor. Nam ornare, est eu ornare congue, mauris nisi tempus sapien, eu rhoncus ipsum dolor id lacus.<br>
+            Suspendisse tristique risus tellus, at sagittis erat pulvinar eu.</p>
+    </div><br>
+
+    <button onClick="enrollBt" id="enroll">Enroll Now</button>
+
+    <div style = "display:none" id="enrollDv">
+        <form action="/enroll" method="post" id="enrollForm">
+          <br/>
+          <input placeholder="First name" type="text" name="fname"><br/>
+          <br/>
+          <input placeholder="Last name" type="text" name="lname"><br/>
+          <br/>
+          <input placeholder="Email" type="email" name="email"><br/>
+          <br/>
+          <label for="Course" style="color:white">Select your Course</label><br><br>
+          <input id="Course" list="courses" name="course"><br/>
+            <datalist id="courses">
+                <option value="Data Science">
+                <option value="Software Development">
+                <option value="DevOps">
+                <option value="UI/UX Design">
+                <option value="Blockchain">
+                <option value="Cybersecurity">
+            </datalist>
+          <br/>
+          <input placeholder="Password" name="password" type="password" id="pwd"><br/><br/>
+          <input placeholder="Confirm Password" name="pwdC" type="password" id="pwd"><br/><br/>
+          <input type="submit" value="Confirm & Pay" id="erlbtn">
+        </form>
+      </div>
+
+    {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
+
+    <div id="footer">
+      <p id="footerSM">
+          <a href="https://www.facebook.com" target="_window" class="fa fa-facebook"></a>
+          <a href="https://twitter.com" target="_window" class="fa fa-twitter"></a>
+          <a href="https://youtube.com" target="_window" class="fa fa-youtube"></a>
+          <a href="https://instagram.com" target="_window" class="fa fa-instagram"></a>
+      </p>
+      <p id="footerMsg">
+         Follow Us | SS+ © copyright
+      </p>
+    </div>
+
+<script>
+
+    let enrollBt = document.getElementById('enroll');
+
+    let formS = document.getElementById('enrollDv');
+
+    enrollBt.addEventListener('click', () => {
+    if (formS.style.display === 'none') {
+      formS.style.display = 'block';
+    } else {
+      formS.style.display = 'none';
+    }
+    });
+
+    function password() {
+    let x = document.getElementById("pwd");
+    if (x.type === "password") {
+      x.type = "text";
+    } else {
+      x.type = "password";
+    }
+    }
+
+</script>
+
+
+</body>
+</html>
