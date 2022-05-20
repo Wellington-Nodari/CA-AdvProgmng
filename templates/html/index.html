@@ -1,17 +1,30 @@
 <!DOCTYPE html>
 <html lang="eng">
   <head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../static/css/main.css">
-    <title>My Application - Test</title>
+    <title>The IT School - ITS</title>
   </head>
   <body>
       <div class="header">
-      <h1>Welcome to my School</h1>
-        <h3>The best online courses provider
+      <h1>The IT School</h1>
+        <h2>Dive into the Technology World!</h2>
+        <h3>Come and discover this fascinating and growing field of information technology! Become a qualified professional.</h3>
         <button onClick="signBt" id="signup">SignUp</button>
-        </h3>
+
+      <div class="courList">
+          <p id="coursesList">
+            <a href="datascience">Data Science</a>
+            <a href="#about">Software Development</a>
+            <a href="#contact">DevOps</a>
+            <a href="#home">UI/UX Design</a>
+            <a href="#about">Blockchain</a>
+            <a href="#contact">Cybersecurity</a>
+          </p>
+      </div>
+
       </div>
     <div class="content">
       <div style = "display:none" id="signDv">
@@ -21,8 +34,8 @@
           <br/>
           <input placeholder="Email" type="email" name="email"><br/>
           <br/>
-          <input placeholder="Password" name="password"><br/><br/>
-          <input placeholder="Confirm Password" name="pwdC"><br/><br/>
+          <input placeholder="Password" name="password" type="password" id="pwd"><br/><br/>
+          <input placeholder="Confirm Password" name="pwdC" type="password" id="pwd"><br/><br/>
           <input type="submit" value="Confirm" id="sUpbtn">
         </form>
       </div>
@@ -32,7 +45,7 @@
           <br/>
           <input placeholder="Email" type="email" name="email"><br/>
           <br/>
-          <input placeholder="Password" name="password"><br/><br/>
+          <input placeholder="Password" name="password" type="password" id="pwd"><br/><br/>
           <input type="submit" value="Login" id="lbtn">
         </form>
       </div>
@@ -47,20 +60,18 @@
       {{ message }}
     {% endfor %}
     </div>
-    <footer>
-      <div class="footer">
-		<p id="footerSM">
-            <a href="https://www.facebook.com" target="_window" class="fa fa-facebook"></a>
-			<a href="https://twitter.com" target="_window" class="fa fa-twitter"></a>
-			<a href="https://youtube.com" target="_window" class="fa fa-youtube"></a>
-			<a href="https://instagram.com" target="_window" class="fa fa-instagram"></a>
-			<a href="+353 0801234567" target="_window" class="fa fa-whatsapp"></a>
-        </p>
-        <p id="footerMsg">
-            The School | Quality in Teaching © copyright
-		</p>
-      </div>
-	</footer>
+    <div id="footer">
+      <p id="footerSM">
+          <a href="https://www.facebook.com" target="_window" class="fa fa-facebook"></a>
+          <a href="https://twitter.com" target="_window" class="fa fa-twitter"></a>
+          <a href="https://youtube.com" target="_window" class="fa fa-youtube"></a>
+          <a href="https://instagram.com" target="_window" class="fa fa-instagram"></a>
+      </p>
+      <p id="footerMsg">
+         Follow Us | SS+ © copyright
+      </p>
+    </div>
+
 
     <script>
 
@@ -76,6 +87,16 @@
           formL.style.display = 'block', formS.style.display = 'none';
         }
       });
+
+      function password() {
+        let x = document.getElementById("pwd");
+        if (x.type === "password") {
+          x.type = "text";
+        } else {
+          x.type = "password";
+        }
+      }
+
 
     </script>
 

@@ -7,6 +7,10 @@ app = Flask(__name__)
 app.secret_key = "diamond" #check this!!!
 app.database = "myschool.db"
 
+@app.route('/')
+def home():
+    return render_template("/html/index.html")
+
 def login_required(f):
     @wraps(f)
     def wrap(*args, **kwargs):
@@ -14,21 +18,22 @@ def login_required(f):
             return f(*args, **kwargs)
         else:
             flash('Please login first.')
-            return redirect(url_for('login'))
+            return redirect(url_for('/'))
     return wrap
 
-@app.route('/test')
+@app.route('/main')
 @login_required
-def test():
+def main():
+
     g.db = connect_db()
     cur = g.db.execute('select * from students')
     students = [dict(studentId=row[0], username=row[1], email=row[2]) for row in cur.fetchall()]
     g.db.close()
     return render_template('/html/booking/booking.html', students=students)
 
-@app.route('/')
-def home():
-    return render_template("/html/index.html")
+@app.route('/datascience')
+def dataSc():
+    return render_template("/dataSc.html")
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
@@ -47,7 +52,7 @@ def login():
             session['logged_in'] = True
             g.db.close()
             flash("You were just logged in!")
-            return redirect(url_for('test'))
+            return redirect(url_for('main'))
     except:
         error = 'Invalid credentials. Please try again'
         return render_template('/html/index.html', error=error)
@@ -60,16 +65,20 @@ def logout():
 def connect_db():
     return sqlite3.connect(app.database)
 
-@app.route('/signup', methods=['POST', 'GET'])
-def signup():
+@app.route('/enroll', methods=['POST', 'GET'])
+def enroll():
     name = str(request.form['username'])
     email = str(request.form['email'])
     pwd = str(request.form['password'])
     pwdc = str(request.form['pwdC'])
 
     g.db = connect_db()
-    cur = g.db.execute("INSERT INTO students (username, email, password) VALUES ('{}','{}','{}');".format(name,email,pwd))
+    cur = g.db.execute("INSERT INTO students (username, email, password) VALUES ('{}','{}','{}');".format(name, email, pwd))
     add = cur.fetchall()
+
+    if pwd != pwdc:
+        return render_template('/html/index.html', error='The passwords much match.')
+
     g.db.commit()
     print(add)
     g.db.close()
@@ -77,8 +86,6 @@ def signup():
     return redirect(url_for('home'))
 
 
-    # if name in add:
-    #     return render_template('/html/index.html', info='User name already in use. Choose another one.')
     # if email in add:
     #     return render_template('/html/index.html', info='Email already in use. Choose another one.')
     # if pwdc != pwd:
