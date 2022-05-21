@@ -187,17 +187,5 @@ def enroll():
 
     return redirect(url_for('home'))
 
-    # if email in add:
-    #     return render_template('/html/index.html', info='Email already in use. Choose another one.')
-    # if pwdc != pwd:
-    #     return render_template('/html/index.html', info='The passwords must match.')
-    #
-    # else:
-    #     if add[0][2] != pwd:
-    #         return render_template('/html/index.html', info='Invalid Password')
-    #     else:
-    #         return render_template('/html/booking/main.html', name=name)
-
-
 if __name__ == '__main__':
     app.run(debug=True)
