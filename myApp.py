@@ -1,9 +1,7 @@
-import flask_login
 from flask import Flask, request, render_template, redirect, url_for, session, flash, g
 from functools import wraps
 import sqlite3
 import datetime
-import json
 
 app = Flask(__name__)
 app.secret_key = "diamond" #check this!!!
