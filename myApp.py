@@ -187,7 +187,6 @@ def enroll():
 
     return redirect(url_for('home'))
 
-
     # if email in add:
     #     return render_template('/html/index.html', info='Email already in use. Choose another one.')
     # if pwdc != pwd:
