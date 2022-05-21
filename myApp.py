@@ -1,3 +1,4 @@
+import flask_login
 from flask import Flask, request, render_template, redirect, url_for, session, flash, g
 from functools import wraps
 import sqlite3
@@ -23,39 +24,114 @@ def login_required(f):
             return redirect(url_for('/'))
     return wrap
 
-@app.route('/main')
+@app.route('/main', methods=['GET','POST'])
 @login_required
 def main():
+    user_email = session['email']
+    if session is None:
+        print('session is none')
+    else:
+        print(user_email)
 
-    g.db = connect_db()
-    cur = g.db.execute('select * from students')
-    students = [dict(studentId=row[0], fname=row[1], lname=row[2], email=row[3]) for row in cur.fetchall()]
-    g.db.close()
-    return render_template('/html/main.html', students=students)
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM std_enroll")
+        fetchUE = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
+        cur.execute(fetchUE)
+        x = cur.fetchall()
+        subjName = x[0][0]
+
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM students")
+        fetchFN = f"SELECT fname FROM students WHERE email='{user_email}'"
+        cur.execute(fetchFN)
+        y = cur.fetchall()
+        studentName = y[0][0]
+
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM courses")
+        fetchID = f"SELECT courseId FROM courses C INNER JOIN std_enroll SE ON C.courseName = SE.courseName WHERE email='{user_email}'"
+        cur.execute(fetchID)
+        z = cur.fetchall()
+        courseId = z[0][0]
+        print(courseId)
+
+        g.db.close()
+        return render_template('/html/main.html', subjName=subjName, studentName=studentName, courseId=courseId)
 
 @app.route('/datascience')
 def dataSc():
     return render_template("/html/dataSc.html")
 
+@app.route('/1')
+@login_required
+def dataScience():
+    user_email = session['email']
+    if session is None:
+        print('session is none')
+    else:
+        return render_template("/html/dataScience_content.html")
+
 @app.route('/softdev')
-def softDev():
+def softdev():
     return render_template("/html/softDev.html")
+
+@app.route('/2')
+@login_required
+def softwareDevelopment():
+    user_email = session['email']
+    if session is None:
+        print('session is none')
+    else:
+        return render_template("/html/softwareDev_content.html")
 
 @app.route('/devops')
 def devops():
     return render_template("/html/devops.html")
 
+@app.route('/3')
+@login_required
+def devOps():
+    user_email = session['email']
+    if session is None:
+        print('session is none')
+    else:
+        return render_template("/html/devOps_content.html")
+
 @app.route('/ixdesign')
 def ixdesign():
     return render_template("/html/ixdesign.html")
+
+@app.route('/4')
+def uiUxDesign():
+    user_email = session['email']
+    if session is None:
+        print('session is none')
+    else:
+        return render_template("/html/uiUxDesign_content.html")
 
 @app.route('/bchain')
 def bchain():
     return render_template("/html/blockchain.html")
 
+@app.route('/5')
+def blockChain():
+    user_email = session['email']
+    if session is None:
+        print('session is none')
+    else:
+        return render_template("/html/blockChain_content.html")
+
 @app.route('/cybersec')
 def cybersec():
     return render_template("/html/cybersec.html")
+
+@app.route('/6')
+def cyberSecurity():
+    user_email = session['email']
+    if session is None:
+        print('session is none')
+    else:
+        return render_template("/html/cyberSec_content.html")
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
@@ -67,14 +143,14 @@ def login():
     st = f"SELECT * FROM loginCred WHERE email='{email}' AND password='{pwd}';"
     cur.execute(st)
     e = cur.fetchall()
-    # nameLogin = e[0][1]
-    # print(e)
+
     try:
         if e[0][1] == email and e[0][2] == pwd:
             session['logged_in'] = True
             g.db.close()
-            flash("You were just logged in!")
+            session['email'] = email
             return redirect(url_for('main'))
+
     except:
         error = 'Invalid credentials. Please try again'
         return render_template('/html/index.html', error=error)

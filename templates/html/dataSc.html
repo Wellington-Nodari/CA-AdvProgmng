@@ -8,9 +8,9 @@
     <title>The IT School</title>
 </head>
 <body>
-    <div class="header">
-        <h1><a href="/">The IT School</a></h1>
-        <h2>Data Science</h2><br>
+    <div class="dataheader">
+        <h1><a href="/">The IT School</a></h1><br>
+        <h2> Data Science</h2><br>
     </div>
 
       <div class="courList">
@@ -24,7 +24,7 @@
           </p>
       </div>
 
-    <div class="content">
+    <div class="subjctscontent">
         <h2>This is Data Science</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus non tellus suscipit, pellentesque quam in, bibendum dui. Nullam gravida purus dolor.<br>
             Donec ac sapien luctus, congue elit sit amet, blandit diam. Nulla ac mauris nulla. Sed a sapien tortor. In hac habitasse platea dictumst. Sed et pretium erat, sed dictum sem. Fusce eget nulla in risus molestie pellentesque. Nunc et augue mattis, maximus enim vitae, aliquet turpis.<br>
@@ -37,9 +37,8 @@ Fusce id porta eros, at faucibus ligula. Vestibulum id libero sit amet elit dict
 In dui eros, vestibulum iaculis ex in, porta consectetur velit. Quisque quam arcu, tristique eget justo sed, euismod pulvinar nisi. Donec ac mi vehicula, blandit eros ut, egestas odio. Fusce lobortis nibh fermentum auctor imperdiet. Ut non tristique augue. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.<br>
             Sed rhoncus neque quis velit varius, lobortis placerat augue malesuada. Aliquam erat volutpat. Duis eu luctus lacus. Integer scelerisque nisl vitae efficitur eleifend. Donec elementum lacus nec erat efficitur dignissim. In id tellus at tortor bibendum consequat et in neque. Mauris eros est, mattis id nibh vel, condimentum ultricies dolor. Nam ornare, est eu ornare congue, mauris nisi tempus sapien, eu rhoncus ipsum dolor id lacus.<br>
             Suspendisse tristique risus tellus, at sagittis erat pulvinar eu.</p>
-    </div><br>
-
-    <button onClick="enrollBt" id="enroll">Enroll Now</button>
+    <button onClick="enrollBt" id="enrollBt">Enroll Now</button><br>
+    </div>
 
     <div style = "display:none" id="enrollDv">
         <form action="/enroll" method="post" id="enrollForm">
@@ -85,11 +84,10 @@ In dui eros, vestibulum iaculis ex in, porta consectetur velit. Quisque quam arc
 
 <script>
 
-    let enrollBt = document.getElementById('enroll');
-
+    let enroll = document.getElementById('enrollBt');
     let formS = document.getElementById('enrollDv');
 
-    enrollBt.addEventListener('click', () => {
+    enroll.addEventListener('click', () => {
     if (formS.style.display === 'none') {
       formS.style.display = 'block';
     } else {

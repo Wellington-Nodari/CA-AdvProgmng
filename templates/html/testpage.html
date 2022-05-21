@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="eng">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="../static/css/main.css">
+    <title>The IT School - ITS</title>
+  </head>
+  <script src="https://js.braintreegateway.com/web/dropin/1.33.1/js/dropin.js"></script>
+  <body>
+  <div class="header">
+      <h1>The IT School</h1>
+        <h2>Dive into the Technology World!</h2>
+        <h3>Come and discover this fascinating and growing field of information technology!<br> Become a qualified professional.</h3>
+
+      <div class="courList">
+          <p id="coursesList">
+            <a href="datascience">Data Science</a>
+            <a href="softdev">Software Development</a>
+            <a href="devops">DevOps</a>
+            <a href="ixdesign">UI/UX Design</a>
+            <a href="bchain">Blockchain</a>
+            <a href="cybersec">Cybersecurity</a>
+          </p>
+      </div>
+
+  </div>
+    <div class="content">
+
+      <div id="dropin-container"></div>
+      <button id="submit-button" class="button button--small button--green">Purchase</button>
+
+    </div>
+    <div id="footer">
+      <p id="footerSM">
+          <a href="https://www.facebook.com" target="_window" class="fa fa-facebook"></a>
+          <a href="https://twitter.com" target="_window" class="fa fa-twitter"></a>
+          <a href="https://youtube.com" target="_window" class="fa fa-youtube"></a>
+          <a href="https://instagram.com" target="_window" class="fa fa-instagram"></a>
+      </p>
+      <p id="footerMsg">
+         Follow Us | SS+ © copyright
+      </p>
+    </div>
+
+
+    <script>
+
+    var button = document.querySelector('#submit-button');
+
+    braintree.dropin.create({
+      authorization: 'sandbox_g42y39zw_348pk9cgf3bgyw2b',
+      selector: '#dropin-container'
+    }, function (err, instance) {
+      button.addEventListener('click', function () {
+        instance.requestPaymentMethod(function (err, payload) {
+          // Submit payload.nonce to your server
+        });
+      })
+    });
+
+
+    </script>
+
+  </body>
+</html>

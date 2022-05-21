@@ -1,43 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../../static/css/main.css">
     <meta charset="UTF-8">
-    <title>Home Page - Test</title>
+    <title>The IT School</title>
 </head>
 <body>
-    <div class="header">
-        <h1><a href="/">The IT School</a></h1>
-        <h2>Welcome to {{ subjName }}!</h2><br>
+    <div class="dataheader">
+        <h1><a href="/">The IT School</a></h1><br>
+        <h2>Welcome to UI/UX Design</h2><br>
     </div>
+
     <p id="logout">Click <a href="logout">here</a> to logout.</p><br>
     {% for message in get_flashed_messages() %}
         {{ message }}
     {% endfor %}
     <br><br>
 
-    <div class="maincontent">
-        <h3>Hello {{ studentName }}</h3>
-        <p>This is your landing area for the {{ subjName }} course.</p>
-        <p>We hope you enjoy our online platform and have the best experience with all tools we provide</p>
-        <p>This course will cover the following subjects</p>
-        <ul>
-            <li>subject</li>
-            <li>subject</li>
-            <li>subject</li>
-            <li>subject</li>
-            <li>subject</li>
-            <li>subject</li>
-            <li>subject</li>
-        </ul>
-        <p>Now, click the button below and start your tech journey</p><br>
-        <p class="button" id="startBt"><a href="/{{ courseId }}">Start Now</a></p>
-
+    <div id="cont-Course">
+        <ol>
+            <li>Week - 1</li>
+            <li>Week - 2</li>
+            <li>Week - 3</li>
+            <li>Week - 4</li>
+            <li>Week - 5</li>
+            <li>Week - 6</li>
+            <li>Week - 7</li>
+            <li>Week - 8</li>
+        </ol>
     </div>
+
+    {% if error %}
+      <p class="error"><strong>Error:</strong> {{ error }}</p>
+    {% endif %}
 
     <div id="footer">
       <p id="footerSM">
@@ -50,6 +47,11 @@
          Follow Us | SS+ © copyright
       </p>
     </div>
+
+<script>
+
+
+</script>
 
 
 </body>
