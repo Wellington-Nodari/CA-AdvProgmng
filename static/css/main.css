@@ -1,11 +1,11 @@
 *{      margin: auto;
-        padding: 5px;
+        padding: 3px;
         box-sizing: border-box;
         height: auto;
   }
 
     html, body {
-        margin-left: 10px;
+        padding: 10px;
         text-align: left;
         height: 85%;
         background: #242323;
@@ -13,7 +13,7 @@
 
     .header{
         height: auto;
-        background-image: linear-gradient(to right, #080636 , #006e99);
+        background: #01072b url(/static/img/indexBg.jpeg) no-repeat 100% 50%;
         color: #f5f2f4;
         margin: auto;
         float: center;
@@ -21,6 +21,17 @@
         padding: 20px;
         box-sizing: border-box;
         text-align: center;
+  }
+
+  #headerMain{
+        font-size: 30px;
+        text-color: white;
+  }
+
+  #headerMain:hover{
+        font-size: 35px;
+        text-color: silver;
+        transition: 0.2s;
   }
 
   .content{
@@ -87,10 +98,11 @@
     }
 
     #enrollDv{
-        max-width: auto;
+        max-width: 70%;
         margin: auto;
         float: center;
         padding: 5px;
+        height: auto;
         box-sizing: border-box;
         text-align: center;
         text-decoration-color: darkgray;
@@ -98,9 +110,9 @@
     }
 
     #enrollForm{
-        background-color: rgb(180, 180, 180, 0.3);
+        background-color: silver;
         width: auto;
-        border-radius: 10px;
+        border-radius: 20px;
         padding: 20px;
     }
 
@@ -198,11 +210,12 @@
     }
 
     #footer{
-       height: 20%;
+       height: auto;
        width: 100%;
-       background-color: #242323;
+       border-radius: 20px;
+       background-color:black; #242323;
        position: sticky;
-       padding: 50px;
+       padding: 30px;
        color: 616161;
        bottom: 0;
        transition: 0.2s;
@@ -211,7 +224,9 @@
     }
 
     a.fa {
-       float: center;
+       padding: 5px;
+       float: auto;
+       margin: auto;
        color: white;
        text-align: center;
        text-decoration: none;
@@ -229,13 +244,14 @@
     }
 
     #footerMsg{
-       float: center;
+       padding: 5px;
+       float: auto;
        color: white;
        text-align: center;
        text-decoration: none;
     }
 
-    #coursesList, a {
+    #coursesList {
        float: auto;
        color: white;
        text-align: center;
@@ -244,7 +260,26 @@
        font-size: 20px;
     }
 
-    #coursesList, a:hover {
+    a {
+       float: auto;
+       color: white;
+       text-align: center;
+       text-decoration: none;
+       padding: 10px;
+       font-size: 20px;
+    }
+
+    a:hover {
+       opacity: 0.8;
+       font-size: 25px;
+       width: auto;
+       transition: .2s;
+       color: silver;
+       float: auto;
+       text-decoration: none;
+    }
+
+    #coursesList:hover {
        opacity: 0.8;
        font-size: 25px;
        width: auto;
@@ -305,11 +340,9 @@
 
     .bchainheader {
         height: auto;
-        background-image: url(/static/img/bchain.jpeg);
+        background: black url(/static/img/bchain.jpeg) no-repeat 100% 50%;
         background-origin: padding-box;
-        background-repeat: no-repeat;
-        background-position: 100% 50%;
-        background-size: 50%;
+        background-size: 30%;
         color: #d6d2d5;
         margin: auto;
         float: center;

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="eng">
 <head>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,14 +11,15 @@
 </head>
 <body>
     <div class="header">
-        <h1><a href="/">The IT School</a></h1>
+        <h1 id="headerMain"><a href="/">The IT School</a></h1>
         <h2>Welcome to {{ subjName }}!</h2><br>
     </div>
-    <p id="logout">Click <a href="logout">here</a> to logout.</p><br>
-    {% for message in get_flashed_messages() %}
-        {{ message }}
-    {% endfor %}
-    <br><br>
+    <div id="logoutMsg">
+        <p id="logout">Click <a href="logout">here</a> to logout.</p><br>
+        {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+    </div><br><br>
 
     <div class="maincontent">
         <h3>Hello {{ studentName }}</h3>
@@ -36,8 +37,7 @@
         </ul>
         <p>Now, click the button below and start your tech journey</p><br>
         <p class="button" id="startBt"><a href="/{{ courseId }}">Start Now</a></p>
-
-    </div>
+    </div><br><br>
 
     <div id="footer">
       <p id="footerSM">
