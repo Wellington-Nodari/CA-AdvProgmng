@@ -100,6 +100,7 @@ def ixdesign():
     return render_template("/html/ixdesign.html")
 
 @app.route('/4')
+@login_required
 def uiUxDesign():
     user_email = session['email']
     if session is None:
@@ -112,6 +113,7 @@ def bchain():
     return render_template("/html/blockchain.html")
 
 @app.route('/5')
+@login_required
 def blockChain():
     user_email = session['email']
     if session is None:
@@ -124,6 +126,7 @@ def cybersec():
     return render_template("/html/cybersec.html")
 
 @app.route('/6')
+@login_required
 def cyberSecurity():
     user_email = session['email']
     if session is None:
