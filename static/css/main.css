@@ -130,19 +130,19 @@
         float: auto;
         position: auto;
         text-size: 10px;
-        background: silver;
-        border: 2px solid #b4b4b4;
-        width: 100px;
+        background: #177cb7;
+        border: 2px solid #105c8f;
+        width: 120px;
         color: white;
   }
 
     #startBt:hover {
         float: auto;
         position: auto;
-        background: grey;
-        border: 2px solid #b4b4b4;
-        width: 100px;
-        color: blue;
+        background: #105c8f;
+        border: 2px solid #052b56;
+        width: 122px;
+        color: white;
   }
 
     .error {
@@ -211,7 +211,7 @@
 
     #footer{
        height: auto;
-       width: 100%;
+       width: 80%;
        border-radius: 20px;
        background-color:black; #242323;
        position: sticky;
@@ -234,7 +234,7 @@
 
     .fa:hover {
        opacity: 0.8;
-       font-size: 20px;
+       font-size: 18px;
        width: 45px;
        transition: .2s;
        color: #E50914;
@@ -271,7 +271,7 @@
 
     a:hover {
        opacity: 0.8;
-       font-size: 25px;
+       font-size: 21px;
        width: auto;
        transition: .2s;
        color: silver;
@@ -281,7 +281,7 @@
 
     #coursesList:hover {
        opacity: 0.8;
-       font-size: 25px;
+       font-size: 21px;
        width: auto;
        transition: .2s;
        color: silver;
@@ -326,7 +326,8 @@
 
     .ixdesheader {
         height: auto;
-        background-image: url(/static/img/ixdesing.jpeg);
+        border-image: url(/static/img/ixdesing.jpeg) 60 round;
+        background: url(/static/img/ixdesing.jpeg), linear-gradient(to right,#384454, #1b1e25);
         background-repeat: no-repeat;
         background-position: 50% 50%;
         color: #d6d2d5;
