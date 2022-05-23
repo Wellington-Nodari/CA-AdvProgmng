@@ -2,11 +2,15 @@ from flask import Flask, request, render_template, redirect, url_for, session, f
 from functools import wraps
 import sqlite3
 import datetime
+import stripe
 
 app = Flask(__name__)
 app.secret_key = "diamond" #check this!!!
 app.database = "myschool.db"
 now = datetime.datetime.now()
+
+app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51L2Y7hFbCMzbpnuJTLncB55vZzmks621qeURLAFDxzxUUtghMyFnBl2kX9YSksqchtiu33yiJ9tVWNnSkMwkRkU500t7hPhWhQ'
+app.config['STRIPE_SECRET_KEY'] = 'sk_test_51L2Y7hFbCMzbpnuJQrZAh6ya100Z8lultTeCBqrOUwJPhmQJp6SD0TyThU69dzshiBixDNXt6l5p5hyJUfOlqFLG00tk2MwSeE'
 
 @app.route('/')
 def home():
@@ -27,14 +31,13 @@ def login_required(f):
 def main():
     user_email = session['email']
     if session is None:
-        print('session is none')
+        error = 'Access denied. Login required!'
+        return render_template("/html/index.html", error=error)
     else:
-        print(user_email)
-
         g.db = connect_db()
         cur = g.db.execute("SELECT * FROM std_enroll")
-        fetchUE = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
-        cur.execute(fetchUE)
+        fetchCN = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
+        cur.execute(fetchCN)
         x = cur.fetchall()
         subjName = x[0][0]
 
@@ -67,7 +70,18 @@ def dataScience():
     if session is None:
         print('session is none')
     else:
-        return render_template("/html/dataScience_content.html")
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM std_enroll")
+        fetchCN = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
+        cur.execute(fetchCN)
+        x = cur.fetchall()
+        subjName = x[0][0]
+
+        if subjName == 'Data Science':
+            return render_template("/html/dataScience_content.html")
+        else:
+            error = 'You are not enrolled to this course! Access denied.'
+            return render_template("/html/index.html", error=error)
 
 @app.route('/softdev')
 def softdev():
@@ -80,7 +94,19 @@ def softwareDevelopment():
     if session is None:
         print('session is none')
     else:
-        return render_template("/html/softwareDev_content.html")
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM std_enroll")
+        fetchCN = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
+        cur.execute(fetchCN)
+        x = cur.fetchall()
+        subjName = x[0][0]
+        print(subjName)
+
+        if subjName == 'Software Development':
+            return render_template("/html/softwareDev_content.html")
+        else:
+            error = 'You are not enrolled to this course! Access denied.'
+            return render_template("/html/index.html", error=error)
 
 @app.route('/devops')
 def devops():
@@ -93,7 +119,18 @@ def devOps():
     if session is None:
         print('session is none')
     else:
-        return render_template("/html/devOps_content.html")
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM std_enroll")
+        fetchCN = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
+        cur.execute(fetchCN)
+        x = cur.fetchall()
+        subjName = x[0][0]
+
+        if subjName == 'DevOps':
+            return render_template("/html/devOps_content.html")
+        else:
+            error = 'You are not enrolled to this course! Access denied.'
+            return render_template("/html/index.html", error=error)
 
 @app.route('/ixdesign')
 def ixdesign():
@@ -106,7 +143,18 @@ def uiUxDesign():
     if session is None:
         print('session is none')
     else:
-        return render_template("/html/uiUxDesign_content.html")
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM std_enroll")
+        fetchCN = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
+        cur.execute(fetchCN)
+        x = cur.fetchall()
+        subjName = x[0][0]
+
+        if subjName == 'UI/UX Design':
+            return render_template("/html/uiUxDesign_content.html")
+        else:
+            error = 'You are not enrolled to this course! Access denied.'
+            return render_template("/html/index.html", error=error)
 
 @app.route('/bchain')
 def bchain():
@@ -119,7 +167,18 @@ def blockChain():
     if session is None:
         print('session is none')
     else:
-        return render_template("/html/blockChain_content.html")
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM std_enroll")
+        fetchCN = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
+        cur.execute(fetchCN)
+        x = cur.fetchall()
+        subjName = x[0][0]
+
+        if subjName == 'Blockchain':
+            return render_template("/html/blockChain_content.html")
+        else:
+            error = 'You are not enrolled to this course! Access denied.'
+            return render_template("/html/index.html", error=error)
 
 @app.route('/cybersec')
 def cybersec():
@@ -132,11 +191,21 @@ def cyberSecurity():
     if session is None:
         print('session is none')
     else:
-        return render_template("/html/cyberSec_content.html")
+        g.db = connect_db()
+        cur = g.db.execute("SELECT * FROM std_enroll")
+        fetchCN = f"SELECT courseName FROM std_enroll WHERE email='{user_email}'"
+        cur.execute(fetchCN)
+        x = cur.fetchall()
+        subjName = x[0][0]
+
+        if subjName == 'Cybersecurity':
+            return render_template("/html/cyberSec_content.html")
+        else:
+            error = 'You are not enrolled to this course! Access denied.'
+            return render_template("/html/index.html", error=error)
 
 @app.route("/login", methods=['POST', 'GET'])
 def login():
-    error = None
     email = str(request.form["email"])
     pwd = str(request.form["password"])
     g.db = connect_db()

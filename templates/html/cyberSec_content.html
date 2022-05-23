@@ -12,11 +12,13 @@
         <h1><a href="/">The IT School</a></h1><br>
         <h2>Welcome to Cybersecurity</h2><br>
     </div>
-
-    <p id="logout">Click <a href="logout">here</a> to logout.</p><br>
-    {% for message in get_flashed_messages() %}
-        {{ message }}
-    {% endfor %}
+    <div>
+        <input type="button" value="Back to Main" onclick="history.back()" id="backBtn">
+        <p id="logout">Click <a href="logout">here</a> to logout.</p><br>
+        {% for message in get_flashed_messages() %}
+            {{ message }}
+        {% endfor %}
+    </div>
     <br><br>
 
     <div id="cont-Course">

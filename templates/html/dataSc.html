@@ -62,8 +62,8 @@ In dui eros, vestibulum iaculis ex in, porta consectetur velit. Quisque quam arc
             </datalist>
           <br/>
           <input placeholder="Password" name="password" type="password" id="pwd"><br/><br/>
-          <input placeholder="Confirm Password" name="pwdC" type="password" id="pwd"><br/><br/>
-          <input type="submit" value="Confirm & Pay" id="erlbtn">
+          <input placeholder="Confirm Password" name="pwdC" type="password" id="pwdC"><br/><br/>
+          <input type="submit" value="Confirm" id="erlbtn">
         </form>
       </div><br>
 
@@ -100,6 +100,15 @@ In dui eros, vestibulum iaculis ex in, porta consectetur velit. Quisque quam arc
       x.type = "password";
     }
     }
+
+<!--Scroll Down screen automatically when 'Enroll Now' button is pressed. Not working-->
+
+    let allBody = $('html, body');
+    $('#enrollBt').click(function() {
+        var n =$(window).height() + $(document).height();
+        allBody.stop().animate({scrollBottom: n }, 1000, function() {
+    });
+    });
 
 </script>
 
