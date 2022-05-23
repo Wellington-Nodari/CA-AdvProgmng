@@ -2,15 +2,11 @@ from flask import Flask, request, render_template, redirect, url_for, session, f
 from functools import wraps
 import sqlite3
 import datetime
-import stripe
 
 app = Flask(__name__)
-app.secret_key = "diamond" #check this!!!
+app.secret_key = "diamond"
 app.database = "myschool.db"
 now = datetime.datetime.now()
-
-app.config['STRIPE_PUBLIC_KEY'] = 'pk_test_51L2Y7hFbCMzbpnuJTLncB55vZzmks621qeURLAFDxzxUUtghMyFnBl2kX9YSksqchtiu33yiJ9tVWNnSkMwkRkU500t7hPhWhQ'
-app.config['STRIPE_SECRET_KEY'] = 'sk_test_51L2Y7hFbCMzbpnuJQrZAh6ya100Z8lultTeCBqrOUwJPhmQJp6SD0TyThU69dzshiBixDNXt6l5p5hyJUfOlqFLG00tk2MwSeE'
 
 @app.route('/')
 def home():
