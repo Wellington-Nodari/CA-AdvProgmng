@@ -8,6 +8,9 @@ app.secret_key = "diamond"
 app.database = "myschool.db"
 now = datetime.datetime.now()
 
+def connect_db():
+    return sqlite3.connect(app.database)
+
 @app.route('/')
 def home():
     return render_template("/html/index.html")
@@ -226,8 +229,6 @@ def logout():
     session.pop('logged_in', None)
     return redirect(url_for('home'))
 
-def connect_db():
-    return sqlite3.connect(app.database)
 
 @app.route('/enroll', methods=['POST', 'GET'])
 def enroll():
@@ -252,6 +253,10 @@ def enroll():
     g.db.close()
 
     return redirect(url_for('home'))
+
+# @app.errorhandler(404)
+# def not_found(e):
+#     return render_template("404.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
