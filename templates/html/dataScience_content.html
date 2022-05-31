@@ -22,16 +22,7 @@
     <br><br>
 
     <div id="cont-Course">
-        <ol>
-            <li>Week - 1</li>
-            <li>Week - 2</li>
-            <li>Week - 3</li>
-            <li>Week - 4</li>
-            <li>Week - 5</li>
-            <li>Week - 6</li>
-            <li>Week - 7</li>
-            <li>Week - 8</li>
-        </ol>
+        <div id="player"></div>
     </div><br><br>
 
     <div id="footer">
@@ -47,6 +38,44 @@
     </div>
 
 <script>
+
+      var tag = document.createElement('script');
+
+      tag.src = "https://www.youtube.com/iframe_api";
+      var firstScriptTag = document.getElementsByTagName('script')[0];
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+
+      var player;
+      function onYouTubeIframeAPIReady() {
+        player = new YT.Player('player', {
+          height: '240',
+          width: '426',
+          videoId: 'Nrfht_c3T7w',
+          playerVars: {
+            'playsinline': 0
+          },
+          events: {
+            'onReady': onPlayerReady,
+            'onStateChange': onPlayerStateChange
+          }
+        });
+      }
+
+      function onPlayerReady(event) {
+        event.target.playVideo();
+      }
+
+      var done = false;
+      function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING && !done) {
+          setTimeout(stopVideo, 6000);
+          done = true;
+        }
+      }
+      function stopVideo() {
+        player.stopVideo();
+      }
 
 </script>
 

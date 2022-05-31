@@ -101,12 +101,20 @@
   }
 
     #cont-Course{
+        float: center;
+        margin: auto;
         max-width: 70%;
+        height: auto;
         background: linear-gradient(to right, #f0f0f0 , #f9f9f9);
         padding: 50px;
         color: #787878;
         border-radius: 50px;
         position: center;
+    }
+
+    #player{
+        float: center;
+        margin: auto;
     }
 
     #enrollDv{

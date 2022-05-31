@@ -65,6 +65,7 @@ def dataSc():
 @app.route('/1')
 @login_required
 def dataScience():
+
     user_email = session['email']
     if session is None:
         print('session is none')
