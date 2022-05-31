@@ -15,7 +15,7 @@ def connect_db():
 def home():
     return render_template("/html/index.html")
 
-def login_required(f):
+def login_required(f): #taken from https://www.youtube.com/watch?v=_pzMDIi5BuI
     @wraps(f)
     def wrap(*args, **kwargs):
         if 'logged_in' in session:
